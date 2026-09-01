@@ -3,7 +3,7 @@ function Invoke-ExecBaselineOverride {
     .FUNCTIONALITY
         Entrypoint
     .ROLE
-        Tenant.Baselines.ReadWrite
+        Tenant.Standards.ReadWrite
     .DESCRIPTION
         Creates or removes a tenant-scoped delta (design doc §4.1) overriding one standard for
         one tenant. Presence is the override: the delta's expectedValue (the configured variable

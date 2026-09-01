@@ -29,11 +29,10 @@
     "SHAREPOINTSTANDARD",
     "SHAREPOINTENTERPRISE",
     "SHAREPOINTENTERPRISE_EDU",
-    "SHAREPOINTENTERPRISE_GOV",
     "ONEDRIVE_BASIC",
     "ONEDRIVE_ENTERPRISE"
   ],
-  "secureScoreImpact": 1,
+  "secureScoreImpact": 0,
   "compare": "subset",
   "variables": {
     "legacyAuthEnabled": {

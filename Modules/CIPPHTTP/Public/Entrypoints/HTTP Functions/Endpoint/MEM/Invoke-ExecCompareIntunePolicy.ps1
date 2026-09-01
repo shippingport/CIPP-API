@@ -23,7 +23,6 @@ function Invoke-ExecCompareIntunePolicy {
         'WindowsFeatureUpdateProfiles' = 'windowsFeatureUpdateProfiles'
         'windowsQualityUpdatePolicies' = 'windowsQualityUpdatePolicies'
         'windowsQualityUpdateProfiles' = 'windowsQualityUpdateProfiles'
-        'hardwareConfigurations'       = 'hardwareConfigurations'
         'Intents'                      = 'Intents'
         'ManagedAppPolicies'           = 'AppProtection'
     }
@@ -35,16 +34,6 @@ function Invoke-ExecCompareIntunePolicy {
 
         if (-not $SourceA -or -not $SourceB) {
             throw 'Both sourceA and sourceB are required'
-        }
-
-        # AnyTenant: source tenants must be in the caller's scope; Get-Tenants is narrowed
-        $AllowedTenants = Test-CIPPAccess -Request $Request -TenantList
-        if ($AllowedTenants -notcontains 'AllTenants') {
-            foreach ($SourceTenant in @($SourceA.tenantFilter, $SourceB.tenantFilter)) {
-                if ($SourceTenant -and -not (Get-Tenants -TenantFilter $SourceTenant)) {
-                    throw 'Access to this tenant is not allowed'
-                }
-            }
         }
 
         # Load a stored Intune template. When a tenant is supplied the template is put through the

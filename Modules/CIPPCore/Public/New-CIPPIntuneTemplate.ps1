@@ -27,9 +27,6 @@ function New-CIPPIntuneTemplate {
             '*groupPolicyConfigurations' {
                 $URLName = 'groupPolicyConfigurations'
             }
-            '*hardwareConfiguration' {
-                $URLName = 'hardwareConfigurations'
-            }
         }
     }
     switch ($URLName) {
@@ -139,12 +136,6 @@ function New-CIPPIntuneTemplate {
         }
         'windowsQualityUpdateProfiles' {
             $Type = 'windowsQualityUpdateProfiles'
-            $Template = New-GraphGetRequest -uri "https://graph.microsoft.com/beta/deviceManagement/$($urlname)/$($ID)" -tenantid $TenantFilter | Select-Object * -ExcludeProperty id, lastModifiedDateTime, '@odata.context', 'ScopeTagIds', 'supportsScopeTags', 'createdDateTime'
-            $DisplayName = $Template.displayName
-            $TemplateJson = ConvertTo-Json -InputObject $Template -Depth 100 -Compress
-        }
-        'hardwareConfigurations' {
-            $Type = 'hardwareConfigurations'
             $Template = New-GraphGetRequest -uri "https://graph.microsoft.com/beta/deviceManagement/$($urlname)/$($ID)" -tenantid $TenantFilter | Select-Object * -ExcludeProperty id, lastModifiedDateTime, '@odata.context', 'ScopeTagIds', 'supportsScopeTags', 'createdDateTime'
             $DisplayName = $Template.displayName
             $TemplateJson = ConvertTo-Json -InputObject $Template -Depth 100 -Compress

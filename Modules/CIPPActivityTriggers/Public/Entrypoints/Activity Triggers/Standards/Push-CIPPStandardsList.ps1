@@ -78,7 +78,6 @@ function Push-CIPPStandardsList {
                     @{ id = 'windowsFeatureUpdateProfiles'; url = "deviceManagement/windowsFeatureUpdateProfiles?`$select=id,lastModifiedDateTime,displayName&`$top=200"; method = 'GET' }
                     @{ id = 'windowsQualityUpdatePolicies'; url = "deviceManagement/windowsQualityUpdatePolicies?`$select=id,lastModifiedDateTime,displayName&`$top=200"; method = 'GET' }
                     @{ id = 'windowsQualityUpdateProfiles'; url = "deviceManagement/windowsQualityUpdateProfiles?`$select=id,lastModifiedDateTime,displayName&`$top=200"; method = 'GET' }
-                    @{ id = 'hardwareConfigurations'; url = "deviceManagement/hardwareConfigurations?`$select=id,lastModifiedDateTime,displayName&`$top=200"; method = 'GET' }
                 )
 
                 try {

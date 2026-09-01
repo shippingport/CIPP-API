@@ -74,13 +74,8 @@
         }
 
     } catch {
-        # A failed refresh shouldn't 500 the dialog when we still hold a cached catalog - serve
-        # stale releases and let the log carry the reason the refresh failed.
-        if (-not $Releases) {
-            $ErrorMessage = "Failed to retrieve release information: $($_)"
-            throw $ErrorMessage
-        }
-        Write-LogMessage -API 'GitHub' -tenant 'CIPP' -Sev 'Warning' -message "Failed to refresh GitHub release notes, serving cached releases instead. Error: $($_.Exception.Message)"
+        $ErrorMessage = "Failed to retrieve release information: $($_)"
+        throw $ErrorMessage
     }
 
     if (-not $Releases) {

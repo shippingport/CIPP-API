@@ -31,8 +31,7 @@
       "IntuneWindowsDriverUpdateProfiles",
       "IntuneWindowsFeatureUpdateProfiles",
       "IntuneWindowsQualityUpdatePolicies",
-      "IntuneWindowsQualityUpdateProfiles",
-      "IntuneHardwareConfigurations"
+      "IntuneWindowsQualityUpdateProfiles"
     ]
   },
   "prepare": "Get-CIPPBaselineDetectIntuneDriftState",
